@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 
 export default function SmallCard({ char }) {
 	return (
-			<div className={'SmallCard'}>
-				<Link to={`/chars/${char.id}`} key={char.id}>
-					<img src={char.image} alt="Avatar"/>
-				</Link>
+			<Link to={`/chars/${char.id}`} key={char.id} className={'SmallCard'}>
+				<img src={char.image} alt="Avatar"/>
+
 				<div className={'textField'}>
 					<Link to={`/chars/${char.id}`} key={char.id}>
 						<h3>{char.name}
@@ -23,6 +22,6 @@ export default function SmallCard({ char }) {
 					</div>
 				</div>
 				<div className={'card' + char.status}/>
-			</div>
+			</Link>
 	)
 }

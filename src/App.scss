@@ -110,13 +110,13 @@ html {
         transform: scale(1.01);
         transition: 0.2s;
     }
-    a {
-        display: flex;
-        width: 100%;
-        overflow: hidden;
-    }
+    //a {
+    //    width: 30%;
+    //    display: flex;
+    //    overflow: hidden;
+    //}
     img {
-        width: 100%;
+        width: auto;
         opacity: 1;
         transition: opacity 0.5s ease 0s;
         @include for-phones {
@@ -127,8 +127,7 @@ html {
         }
     }
     h3 {
-        width: 20rem;
-        position: relative;
+        width: auto;
         padding-left: 25px;
         font-size: 1.6rem;
         font-weight: 800;
@@ -167,7 +166,6 @@ html {
         color: #acacac !important;
         margin-bottom: -1rem;
     }
-
     .id {
         font-size: 0.8rem !important;
         color: #acacac !important;
@@ -178,7 +176,7 @@ html {
 
 /*-------  Card Statuses  ------*/
 .smallCardStatus {
-    width: 2rem;
+    width: 1rem;
     height: 100%;
     @include for-phones {
         width: 100%;
