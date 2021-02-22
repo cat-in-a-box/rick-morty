@@ -13,7 +13,7 @@ export default function SmallCard({ char }) {
 					<div className={'characteristics'}>Статус:</div>
 					<div className={'statusField'}>
 						<span className={char.status}/>
-						<p>{char.status} - {char.species}</p>
+						<p>{char.status} ({char.species})</p>
 					</div>
 				</div>
 				<div className={'card' + char.status}/>

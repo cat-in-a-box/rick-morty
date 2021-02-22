@@ -158,6 +158,8 @@ html {
         }
     }
     .statusField {
+        position: absolute;
+        top: 6rem;
         margin-left: 1.2rem;
         height: 2rem;
         display: flex;
@@ -165,6 +167,8 @@ html {
         padding-top: 1rem;
     }
     .characteristics {
+        position: absolute;
+        top: 3.2rem;
         font-size: 0.9rem !important;
         color: #acacac !important;
         margin-top: 2.5rem;
@@ -230,6 +234,10 @@ html {
     overflow: hidden;
     margin-bottom: 4rem;
     box-shadow: rgba(0, 0, 0, 0.5) 3px 4px 15px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
+    @include for-phones {
+        width: 70vw;
+        height: 40rem;
+    }
     &:hover {
         transform: scale(1.002);
         transition: 0.2s;
@@ -298,6 +306,12 @@ html {
     }
     img {
         width: 100%;
+    }
+    @include for-phones {
+        display: none;
+    }
+    @include for-tablets {
+        display: none;
     }
 }
 
