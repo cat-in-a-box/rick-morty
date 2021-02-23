@@ -60,7 +60,7 @@ export default function Card(props) {
 				<div className={'CardControlsContainer'}>
 					<input className={'PreviousPage'} onClick={GetPreviousCharacter} type="image" src={ArrowBack} alt={'Previous'}/>
 					<div className={'CardLoader'} id={'CardLoader'}/>
-					<animated.div class={'Card'}
+					<animated.div className={'Card'}
 					              id={'Card'}
 					              onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calculate(x, y) })}
 					              onMouseLeave={() => set({ xys: [0, 0, 1] })}

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import logoDark from '../../resources/logo-dark.png'
+// import DarkModeSwitcher from '../DarkModeSwitcher'
 import SmallCard from './SmallCard.js'
 
 export default function CharacterList() {
 	const [chars, setChars] = useState([])
 	const [page, setPage] = React.useState(1)
 	const [isBottom, setIsBottom] = useState(false)
+
 
 	useEffect(() => {
 		axios.get('https://rickandmortyapi.com/api/character/').then(res => {
@@ -24,24 +25,28 @@ export default function CharacterList() {
 				let y = 0
 				setTimeout(() => {
 					let i
-					for(i=0; i<10; i++){
+					for (i = 0; i < 10; i++) {
 						y++
 					}
-					loadMore();
+					loadMore()
 					setIsBottom(false)
 					resolve(y)
 				}, 1000)
 			})
 		}
+
 		window.addEventListener('scroll', handleScroll)
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [isBottom, loadMore])
 
+
 	function loadMore() {
 		axios.get('https://rickandmortyapi.com/api/character/?page=' + page)
 				.then(res => {
-					setChars([...chars, ...res.data.results])}).catch(err => {alert(err.message)
-					})
+					setChars([...chars, ...res.data.results])
+				}).catch(err => {
+			alert(err.message)
+		})
 				.then(() => {
 					setPage(page => page + 1)
 				})
@@ -64,12 +69,14 @@ export default function CharacterList() {
 
 	console.log('Loaded Characters:', chars.length)
 
+
 	return (
 			<div>
 				<div className={'Nav'}>
-					<img src={logoDark} alt='logo'/>
+					<img className={'Logo'} alt='logo'/>
 					<h1>Список персонажей сериала <br/>Rick and Morty</h1>
 					<h2>Тестовое задание для компании Nethouse</h2>
+
 				</div>
 				<div className={'CharacterListContainer'}>
 					{chars.map(char => {

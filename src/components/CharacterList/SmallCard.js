@@ -10,10 +10,10 @@ export default function SmallCard({ char }) {
 					<h3>{char.name}
 						<span className={'id'}>({char.id})</span>
 					</h3>
-					<div className={'characteristics'}>Статус:</div>
+					<p className={'characteristics'}>Статус:</p>
 					<div className={'statusField'}>
 						<span className={char.status}/>
-						<p>{char.status} ({char.species})</p>
+						<p>{char.status}</p>
 					</div>
 				</div>
 				<div className={'card' + char.status}/>
