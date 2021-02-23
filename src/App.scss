@@ -7,6 +7,10 @@
     -webkit-tap-highlight-color: transparent; /* Убрать подсвечивание ссылок */
 }
 
+input:focus, textarea:focus, select:focus{
+    outline: none; /* Убрать подсвечивание кнопок в Хроме */
+}
+
 /*----------------------------------------------------------*/
 /*         Creating sass mixins for various devices
 /*--------------------------------------------------------*/
