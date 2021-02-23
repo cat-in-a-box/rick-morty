@@ -1,0 +1,60 @@
+body {
+    background: url(../resources/background-dark.jpg) no-repeat fixed;
+}
+
+@media (max-width: 800px) {
+    body {
+        background: #242730 !important;
+    }
+}
+
+.Nav > img {
+    filter: invert(1) !important;
+}
+.Nav > h1 {
+    color: #bfbfbf !important;
+}
+.Nav > h2 {
+    color: #b7b7b7 !important;
+}
+.Nav a {
+    color: #b7b7b7 !important;
+}
+
+.SmallCard {
+     background: #b1b1b1 !important;
+ }
+.SmallCard .characteristics {
+    color: #3c3c3c !important;
+}
+.SmallCard .id {
+    color: #434343 !important;
+}
+.Alive, .Dead, .Unknown{
+    border: solid 1px rgba(0, 0, 0, 0.75) !important;
+}
+
+.loaderText {
+    color: #dbdbdb !important;
+}
+.loader, .loader:before, .loader:after {
+    border-color: white !important;
+    color: white !important;
+}
+
+.CardLoader {
+    color: white !important;
+    border-top: 1.1em solid rgba(255, 255, 255, 0);
+    border-right: 1.1em solid rgba(255, 255, 255, 0);
+    border-bottom: 1.1em solid rgba(255, 255, 255, 0);
+    border-left: 0.6rem solid #a4a4a4 !important;
+
+}
+.PreviousPage, .NextPage {
+    filter: brightness(250%) !important;
+}
+
+.Card {
+    filter: brightness(0.85) !important;
+}
+
