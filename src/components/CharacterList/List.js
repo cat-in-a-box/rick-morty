@@ -68,7 +68,6 @@ export default function CharacterList() {
 
 	console.log('Loaded Characters:', chars.length)
 
-
 	return (
 			<div>
 				<div className={'Nav'}>
