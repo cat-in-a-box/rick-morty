@@ -8,10 +8,6 @@
 }
 
 /*----------------------------------------------------------*/
-/*                      SCSS Variables
-/*--------------------------------------------------------*/
-
-/*----------------------------------------------------------*/
 /*         Creating sass mixins for various devices
 /*--------------------------------------------------------*/
 @mixin for-phones {
@@ -24,18 +20,17 @@
         @content;
     }
 }
-
 @mixin for-mobile-devices {
     @media (max-width: 1350px) {
         @content;
     }
 }
-
 @mixin for-desktops {
     @media (min-width: 1351px) {
         @content;
     }
 }
+
 
 body {
     //background: url('resources/background-light.jpg') no-repeat fixed;
@@ -46,21 +41,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    //@include for-mobile-devices {
-    //    margin: 1rem 0 0 0;
-    //    padding: 0;
-    //    background-size: cover !important;
-    //    background-position: bottom !important; /* or 50% 50% */
-    //    background-repeat: no-repeat !important;
-    //    width: 100% !important;
-    //    height: 100% !important;
-    //    z-index: -1 !important;
-    //    top: 0 !important;
-    //    left: 0 !important;
-    //    right: 0 !important;
-    //    bottom: 0 !important;
-    //}
 }
+
 
 /*----------------------------------------------------------*/
 /*                      Navigation
@@ -92,12 +74,17 @@ body {
         text-align: center;
     }
     a {
-        font-size: 1.3rem;
-        &:hover {
-            color: #ff8400;
-        }
+        font-size: 1.2rem;
+        padding-bottom: 0.25rem;
+        background: linear-gradient(#565656, #565656) no-repeat center bottom;
+        background-size: 0 1px;
+        transition: all 0.3s;
+    }
+    a:hover {
+        background-size: 70% 2px;
     }
 }
+
 
 /*----------------------------------------------------------*/
 /*               Character LIST (Small cards)
@@ -132,11 +119,6 @@ body {
         transform: scale(1.01);
         transition: 0.2s;
     }
-    //a {
-    //    width: 30%;
-    //    display: flex;
-    //    overflow: hidden;
-    //}
     img {
         object-fit: cover;
         opacity: 1;
@@ -152,13 +134,13 @@ body {
         justify-self: flex-start;
         align-self: flex-start;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         @include for-mobile-devices {
             height: 16rem;
         }
     }
     h3 {
-        justify-content: start;
+        justify-content: flex-start;
         width: auto;
         font-size: 1.3rem;
         font-weight: 800;
@@ -169,7 +151,6 @@ body {
             width: 100%;
             line-height: 1.2rem;
         }
-
     }
     @media (min-width: 1000px) and (max-width: 1500px) {
         h3 {
@@ -181,7 +162,6 @@ body {
         font-weight: normal;
         width: 100%;
     }
-
     .statusField {
         margin-left: 1.2rem;
         height: 2rem;
@@ -212,6 +192,7 @@ body {
     }
 }
 
+
 /*-------  Card Statuses  ------*/
 .smallCardStatus {
     position: relative;
@@ -235,6 +216,7 @@ body {
     @extend .smallCardStatus;
     background: rgb(179, 179, 179);
 }
+
 
 /*----------------------------------------------------------*/
 /*                   Single Card View
@@ -278,7 +260,6 @@ body {
         @include for-mobile-devices {
             width: 10rem;
         }
-
     }
     p {
         font-size: 1.1rem;
@@ -320,15 +301,13 @@ body {
     img {
         width: 100%;
     }
-
     @include for-mobile-devices {
         display: none;
     }
-
 }
 
-/*---  Card Statuses  ---*/
 
+/*---  Card Statuses  ---*/
 .Status {
     height: 0.9rem;
     width: 0.9rem;
@@ -353,10 +332,10 @@ body {
     background: rgb(179, 179, 179);
 }
 
+
 /*----------------------------------------------------------*/
 /*                        Loaders
 /*--------------------------------------------------------*/
-
 .loaderText {
     margin-top: 3rem;
     font-size: 1.3rem;
@@ -396,7 +375,6 @@ body {
     position: absolute;
     top: 0;
     left: 3.5em;
-
 }
 @-webkit-keyframes loading {
     0%,
@@ -462,6 +440,7 @@ body {
     }
 }
 
+
 /*----------------------------------------------------------*/
 /*                        Dark mode Button
 /*--------------------------------------------------------*/
@@ -506,7 +485,6 @@ svg {
             stroke-width: 8px;
             stroke-linecap: round;
             stroke-linejoin: round;
-
             .line {
                 opacity: 1;
             }
@@ -593,7 +571,6 @@ svg {
         }
     }
 }
-
 @keyframes line {
     0% {
         transform: translateY(0);

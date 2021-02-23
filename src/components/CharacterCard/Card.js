@@ -55,7 +55,7 @@ export default function Card(props) {
 	return (
 			<div>
 				<div className={'Nav'}>
-					<Link to="/">❮ Назад к списку персонажей</Link>
+					<Link to="/">Назад к персонажам</Link>
 				</div>
 				<div className={'CardControlsContainer'}>
 					<input className={'PreviousPage'} onClick={GetPreviousCharacter} type="image" src={ArrowBack} alt={'Previous'}/>

@@ -9,7 +9,6 @@ export default function CharacterList() {
 	const [page, setPage] = React.useState(1)
 	const [isBottom, setIsBottom] = useState(false)
 
-
 	useEffect(() => {
 		axios.get('https://rickandmortyapi.com/api/character/').then(res => {
 			setChars(res.data.results)

@@ -1,24 +1,17 @@
 import React, { useEffect } from 'react'
 
 export default function DarkModeSwitcher() {
-
 	useEffect(() => {
 		let btn = document.getElementById('checkbox1')
 		let theme = document.querySelector('#theme-link')
 
 		btn.addEventListener('change', function () {
-			// If the current URL contains "light-theme.css"
 			if (theme.getAttribute('href') === 'css/light-theme.css') {
-				// ... then switch it to "dark-theme.css"
 				theme.href = 'css/dark-theme.css'
-				// Otherwise...
 			} else {
 				if (theme.getAttribute('href') === '../css/light-theme.css') {
-					// ... then switch it to "dark-theme.css"
 					theme.href = '../css/dark-theme.css'
-					// Otherwise...
 				} else
-						// ... switch it to "light-theme.css"
 					theme.href = '../css/light-theme.css'
 			}
 		})
