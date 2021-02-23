@@ -1,5 +1,5 @@
 body {
-    background: url(../resources/background-dark.jpg) no-repeat fixed;
+    background: #242730 url(../resources/background-dark.jpg) no-repeat fixed;
 }
 
 @media (max-width: 800px) {
@@ -30,7 +30,8 @@ body {
 .SmallCard .id {
     color: #434343 !important;
 }
-.Alive, .Dead, .Unknown{
+
+.Alive, .Dead, .unknown{
     border: solid 1px rgba(0, 0, 0, 0.75) !important;
 }
 

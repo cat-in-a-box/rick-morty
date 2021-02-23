@@ -3,8 +3,8 @@
 * {
     color: #242424;
     text-decoration: none;
-    -webkit-tap-highlight-color: transparent; /* Убрать подсвечивание ссылок */
     font-family: 'Jost', serif;
+    -webkit-tap-highlight-color: transparent; /* Убрать подсвечивание ссылок */
 }
 
 /*----------------------------------------------------------*/
@@ -39,26 +39,27 @@
 
 body {
     //background: url('resources/background-light.jpg') no-repeat fixed;
+    -webkit-transition: background-image 0.25s ease-in-out;
+    transition: background-image 0.25s ease-in-out;
     margin-top: 2rem;
     padding-bottom: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    @include for-mobile-devices {
-        margin: 1rem 0 0 0;
-        padding: 0;
-        background-size: cover !important;
-        background-position: bottom !important; /* or 50% 50% */
-        background-repeat: no-repeat !important;
-        width: 100% !important;
-        height: 100% !important;
-
-        z-index: -1 !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-    }
+    //@include for-mobile-devices {
+    //    margin: 1rem 0 0 0;
+    //    padding: 0;
+    //    background-size: cover !important;
+    //    background-position: bottom !important; /* or 50% 50% */
+    //    background-repeat: no-repeat !important;
+    //    width: 100% !important;
+    //    height: 100% !important;
+    //    z-index: -1 !important;
+    //    top: 0 !important;
+    //    left: 0 !important;
+    //    right: 0 !important;
+    //    bottom: 0 !important;
+    //}
 }
 
 /*----------------------------------------------------------*/
