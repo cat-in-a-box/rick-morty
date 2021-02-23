@@ -480,6 +480,10 @@ svg {
     @include for-mobile-devices {
         transform: scale(0.3);
     }
+    &:hover {
+        transform: scale(0.43);
+        transition: 0.1s;
+    }
     .button {
         &:after {
             content: "";
