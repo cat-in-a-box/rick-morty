@@ -14,7 +14,7 @@ export default function Card(props) {
 	const cardMoving = (x, y, s) => `perspective(3300px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 	const [options, set] = useSpring({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } })
 
-	// Первоначальная загрузка карточки
+	// Загрузка карточки выбранной на предыдущем экране
 	useEffect(() => {
 		axios.get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`).then(res => {
 			setChar(res.data)
@@ -24,10 +24,11 @@ export default function Card(props) {
 		})
 	}, [props.match.params.id])
 
-	// Скрываем карточку для отображения состояния загрузки, а затем показываем снова
+	// Скрываем карточку
 	function hideCard() {
 		document.getElementById('Card').style.visibility = 'hidden'
 	}
+	// Показываем обратно
 	function showCard() {
 		document.getElementById('Card').style.visibility = 'visible'
 	}
