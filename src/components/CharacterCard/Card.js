@@ -8,10 +8,23 @@ import ArrowForward from '../../resources/arrowForward.png'
 
 export default function Card(props) {
 	const [char, setChar] = useState([])
+
+	// Определяем настройки для движения карты при наведении курсора
 	const calculate = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 15, 1.05]
 	const cardMoving = (x, y, s) => `perspective(3300px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 	const [options, set] = useSpring({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } })
 
+	// Первоначальная загрузка карточки
+	useEffect(() => {
+		axios.get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`).then(res => {
+			setChar(res.data)
+			console.log('Response:', res)
+		}).catch(err => {
+			console.log(err.message)
+		})
+	}, [props.match.params.id])
+
+	// Скрываем карточку для отображения состояния загрузки, а затем показываем снова
 	function hideCard() {
 		document.getElementById('Card').style.visibility = 'hidden'
 	}
@@ -19,6 +32,7 @@ export default function Card(props) {
 		document.getElementById('Card').style.visibility = 'visible'
 	}
 
+	// Скрываем карточку, подгружаем предыдущего персонажа, а затем показываем снова
 	function GetPreviousCharacter() {
 		hideCard();
 		let number = char.id - 1
@@ -31,6 +45,7 @@ export default function Card(props) {
 		setTimeout(showCard, 400)
 	}
 
+	// Скрываем карточку, подгружаем следующего персонажа, а затем показываем снова
 	function GetNextCharacter() {
 		hideCard();
 		let number = char.id + 1
@@ -42,15 +57,6 @@ export default function Card(props) {
 		})
 		setTimeout(showCard, 400)
 	}
-
-	useEffect(() => {
-		axios.get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`).then(res => {
-			setChar(res.data)
-			console.log('Response:', res)
-		}).catch(err => {
-			console.log(err.message)
-		})
-	}, [props.match.params.id])
 
 	return (
 			<div>

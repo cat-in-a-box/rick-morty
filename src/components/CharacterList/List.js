@@ -9,6 +9,20 @@ export default function CharacterList() {
 	const [page, setPage] = React.useState(1)
 	const [isBottom, setIsBottom] = useState(false)
 
+	// Определяем высоту страницы чтобы понимать, докрутили ли мы до конца
+	function handleScroll() {
+		const scrollTop = (document.documentElement
+				&& document.documentElement.scrollTop)
+				|| document.body.scrollTop
+		const scrollHeight = (document.documentElement
+				&& document.documentElement.scrollHeight)
+				|| document.body.scrollHeight
+		if (scrollTop + window.innerHeight + 150 >= scrollHeight) {
+			setIsBottom(true)
+		}
+	}
+
+	// Первоначальная загрузка персонажей
 	useEffect(() => {
 		axios.get('https://rickandmortyapi.com/api/character/').then(res => {
 			setChars(res.data.results)
@@ -18,6 +32,21 @@ export default function CharacterList() {
 		})
 	}, [])
 
+	// Подгрузка персонажей и изменение страницы api на следующую
+	function loadMore() {
+		axios.get('https://rickandmortyapi.com/api/character/?page=' + page)
+				.then(res => {
+					setChars([...chars, ...res.data.results])
+				}).catch(err => {
+			alert(err.message)
+		})
+				.then(() => {
+					setPage(page => page + 1)
+				})
+	}
+
+	// Выполняем функцию loadMore() при достижении конца страницы
+	// Делаем это с промисом чтобы не выполнять функцию сразу несколько раз и подгружать строго по 20 персонажей
 	useEffect(() => {
 		if (isBottom) {
 			return new Promise((resolve) => {
@@ -33,39 +62,12 @@ export default function CharacterList() {
 				}, 1000)
 			})
 		}
-
+		// Проверяем скроллинг страницы
 		window.addEventListener('scroll', handleScroll)
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [isBottom, loadMore])
 
-
-	function loadMore() {
-		axios.get('https://rickandmortyapi.com/api/character/?page=' + page)
-				.then(res => {
-					setChars([...chars, ...res.data.results])
-				}).catch(err => {
-			alert(err.message)
-		})
-				.then(() => {
-					setPage(page => page + 1)
-				})
-				.then(() => {
-					setIsBottom(false)
-				})
-	}
-
-	function handleScroll() {
-		const scrollTop = (document.documentElement
-				&& document.documentElement.scrollTop)
-				|| document.body.scrollTop
-		const scrollHeight = (document.documentElement
-				&& document.documentElement.scrollHeight)
-				|| document.body.scrollHeight
-		if (scrollTop + window.innerHeight + 150 >= scrollHeight) {
-			setIsBottom(true)
-		}
-	}
-
+	// Проверяем через консоль, сколько загружено персонажей
 	console.log('Loaded Characters:', chars.length)
 
 	return (

@@ -5,7 +5,6 @@ export default function SmallCard({ char }) {
 	return (
 			<Link to={`/chars/${char.id}`} key={char.id} className={'SmallCard'}>
 				<img src={char.image} alt="Avatar"/>
-
 				<div className={'textField'}>
 					<h3>{char.name}
 						<span className={'id'}>({char.id})</span>

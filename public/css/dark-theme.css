@@ -1,3 +1,5 @@
+/*Темная тема, подгружаемая с помощью компонента DarkModeSwitcher*/
+
 body {
     background: #242730 url(../resources/background-dark.jpg) no-repeat fixed;
 }
@@ -75,4 +77,3 @@ body {
 .Card {
     filter: brightness(0.85) !important;
 }
-

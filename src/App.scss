@@ -35,9 +35,7 @@ input:focus, textarea:focus, select:focus{
     }
 }
 
-
 body {
-    //background: url('resources/background-light.jpg') no-repeat fixed;
     -webkit-transition: background-image 0.25s ease-in-out;
     transition: background-image 0.25s ease-in-out;
     margin-top: 2rem;
@@ -47,9 +45,8 @@ body {
     align-items: center;
 }
 
-
 /*----------------------------------------------------------*/
-/*                      Navigation
+/*                          TOP
 /*--------------------------------------------------------*/
 .Nav {
     display: flex;
@@ -91,7 +88,7 @@ body {
 
 
 /*----------------------------------------------------------*/
-/*               Character LIST (Small cards)
+/*               CHARACTER LIST (Small cards)
 /*--------------------------------------------------------*/
 .CharacterListContainer {
     display: flex;
@@ -223,7 +220,7 @@ body {
 
 
 /*----------------------------------------------------------*/
-/*                   Single Card View
+/*                   SINGLE CARD VIEW
 /*--------------------------------------------------------*/
 .Card {
     visibility: visible;
@@ -338,7 +335,7 @@ body {
 
 
 /*----------------------------------------------------------*/
-/*                        Loaders
+/*                        LOADERS
 /*--------------------------------------------------------*/
 .loaderText {
     margin-top: 3rem;
@@ -446,7 +443,7 @@ body {
 
 
 /*----------------------------------------------------------*/
-/*                        Dark mode Button
+/*                        DARK MODE BUTTON
 /*--------------------------------------------------------*/
 svg {
     position: absolute;
