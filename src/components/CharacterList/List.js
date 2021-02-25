@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import DarkModeSwitcher from '../DarkModeSwitcher'
 import SmallCard from './SmallCard.js'
 
 export default function CharacterList() {
@@ -77,7 +76,6 @@ export default function CharacterList() {
 					<img className={'Logo'} alt='logo'/>
 					<h1>Список персонажей сериала <br/>Rick and Morty</h1>
 					<h2>Тестовое задание для компании Nethouse</h2>
-					<DarkModeSwitcher/>
 				</div>
 				<div className={'CharacterListContainer'}>
 					{chars.map(char => {

@@ -5,18 +5,16 @@ export default function DarkModeSwitcher() {
 		// Определяем кнопку включения-выключения
 		let btn = document.getElementById('DarkModeCheckbox')
 
-		// Выбираем тему по id, который назначается в public/index.html
-		let theme = document.querySelector('#theme-link')
-
-		// Нажатием кнопки меняем ссылку для css темы со светлой на тёмную
+		// Нажатием кнопки меняем ссылку для css темы со светлой на тёмную, а затем обратно
+		// Селектор - id стиля, который назначается в public/index.html
 		btn.addEventListener('change', function () {
-			if (theme.getAttribute('href') === 'css/light-theme.css') {
-				theme.href = 'css/dark-theme.css'
+			if (document.querySelector('#theme-link').getAttribute('href') === 'css/light-theme.css') {
+				document.querySelector('#theme-link').href = 'css/dark-theme.css'
 			} else {
-				if (theme.getAttribute('href') === '../css/light-theme.css') {
-					theme.href = '../css/dark-theme.css'
+				if (document.querySelector('#theme-link').getAttribute('href') === '../css/light-theme.css') {
+					document.querySelector('#theme-link').href = '../css/dark-theme.css'
 				} else
-					theme.href = '../css/light-theme.css'
+					document.querySelector('#theme-link').href = '../css/light-theme.css'
 			}
 		})
 	}, [])
