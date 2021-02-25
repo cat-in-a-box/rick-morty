@@ -10,9 +10,9 @@ export default function Card(props) {
 	const [char, setChar] = useState([])
 
 	// Определяем настройки для движения карты при наведении курсора
-	const calculate = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 15, 1.045]
-	const cardMoving = (x, y, s) => `perspective(2500px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
-	const [options, set] = useSpring({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } })
+	const calculate = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 15, 1.04]
+	const cardMoving = (x, y, s) => `perspective(3000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+	const [options, set] = useSpring({ xys: [0, 0, 1], config: { mass: 5, tension: 400, friction: 20 } })
 
 	// Загрузка карточки выбранной на предыдущем экране
 	useEffect(() => {
