@@ -18,6 +18,7 @@ export default function Card(props) {
 	function hideCard() {
 		document.getElementById('Card').style.visibility = 'hidden'
 	}
+
 	// Показываем карточку обратно
 	function showCard() {
 		document.getElementById('Card').style.visibility = 'visible'
@@ -25,38 +26,42 @@ export default function Card(props) {
 
 	// Загрузка карточки выбранной на экране со списком персонажей
 	useEffect(() => {
-		axios.get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`).then(res => {
-			setChar(res.data)
-			console.log('Response:', res)
-		}).catch(err => {
-			console.log(err.message)
-		})
+		axios.get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`)
+				.then(res => {
+					setChar(res.data)
+					console.log('Response:', res)
+				})
+				.catch(err => {
+					console.log(err.message)
+				})
 		setTimeout(showCard, 400)
 	}, [props.match.params.id])
 
 	// Скрываем карточку, подгружаем ПРЕДЫДУЩЕГО персонажа, а затем показываем её снова
 	function GetPreviousCharacter() {
-		hideCard();
-		let number = char.id - 1
-		axios.get(`https://rickandmortyapi.com/api/character/` + number).then(res => {
-			setChar(res.data)
-			console.log('Response:', res)
-		}).catch(err => {
-			console.log(err.message)
-		})
+		hideCard()
+		axios.get(`https://rickandmortyapi.com/api/character/` + (char.id - 1))
+				.then(res => {
+					setChar(res.data)
+					console.log('Response:', res)
+				})
+				.catch(err => {
+					console.log(err.message)
+				})
 		setTimeout(showCard, 400)
 	}
 
 	// Скрываем карточку, подгружаем СЛЕДУЮЩЕГО персонажа, а затем показываем её снова
 	function GetNextCharacter() {
-		hideCard();
-		let number = char.id + 1
-		axios.get(`https://rickandmortyapi.com/api/character/` + number).then(res => {
-			setChar(res.data)
-			console.log('Response:', res)
-		}).catch(err => {
-			console.log(err.message)
-		})
+		hideCard()
+		axios.get(`https://rickandmortyapi.com/api/character/` + (char.id + 1))
+				.then(res => {
+					setChar(res.data)
+					console.log('Response:', res)
+				})
+				.catch(err => {
+					console.log(err.message)
+				})
 		setTimeout(showCard, 400)
 	}
 
@@ -72,7 +77,7 @@ export default function Card(props) {
 					              id={'Card'}
 					              onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calculate(x, y) })}
 					              onMouseLeave={() => set({ xys: [0, 0, 1] })}
-					              style={{ transform: options.xys.interpolate(cardMoving)}}>
+					              style={{ transform: options.xys.interpolate(cardMoving) }}>
 						<h3>{char.name}</h3>
 						<img src={char.image} alt="profile pic"/>
 						<p className={'characteristics'}>Статус:</p>
