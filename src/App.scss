@@ -234,7 +234,7 @@ body {
 /*                   SINGLE CARD VIEW
 /*--------------------------------------------------------*/
 .Card {
-    visibility: visible;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -314,7 +314,10 @@ body {
         width: 100%;
     }
     @include for-mobile-devices {
-        display: none;
+        margin: 45rem -3rem 0vh -3rem;
+        &:hover {
+            transform: none;
+        }
     }
 }
 
@@ -430,6 +433,18 @@ body {
     transform: translateZ(0);
     -webkit-animation: loading2 0.5s infinite linear;
     animation: loading2 0.5s infinite linear;
+    @include for-phones {
+        left: 40%;
+        top: 50%;
+        width: 15vw;
+        height: 15vw;
+    }
+    @include for-tablets {
+        left: 45%;
+        top: 40%;
+        width: 10vw;
+        height: 10vw;
+    }
 }
 @-webkit-keyframes loading2 {
     0% {
