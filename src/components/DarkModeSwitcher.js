@@ -2,19 +2,17 @@ import React, { useEffect } from 'react'
 
 export default function DarkModeSwitcher() {
 	useEffect(() => {
-		// Определяем кнопку включения-выключения
+		// Определяем кнопку включения-выключения и директорию public
 		let btn = document.getElementById('DarkModeCheckbox')
+		let publicDir = process.env.PUBLIC_URL;
 
 		// Нажатием кнопки меняем ссылку для css темы со светлой на тёмную, а затем обратно
 		// Селектор - id стиля, который назначается в public/index.html
 		btn.addEventListener('change', function () {
-			if (document.querySelector('#theme-link').getAttribute('href') === 'css/light-theme.css') {
-				document.querySelector('#theme-link').href = 'css/dark-theme.css'
+			if (document.querySelector('#theme-link').getAttribute('href') === `${publicDir}/css/light-theme.css`) {
+				document.querySelector('#theme-link').href = `${publicDir}/css/dark-theme.css`
 			} else {
-				if (document.querySelector('#theme-link').getAttribute('href') === '../css/light-theme.css') {
-					document.querySelector('#theme-link').href = '../css/dark-theme.css'
-				} else
-					document.querySelector('#theme-link').href = '../css/light-theme.css'
+				document.querySelector('#theme-link').href = `${publicDir}/css/light-theme.css`
 			}
 		})
 	}, [])
