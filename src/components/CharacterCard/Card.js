@@ -14,16 +14,6 @@ export default function Card(props) {
 	const cardMoving = (x, y, s) => `perspective(3000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 	const [options, set] = useSpring({ xys: [0, 0, 1], config: { mass: 5, tension: 400, friction: 20 } })
 
-	// Загрузка карточки выбранной на предыдущем экране
-	useEffect(() => {
-		axios.get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`).then(res => {
-			setChar(res.data)
-			console.log('Response:', res)
-		}).catch(err => {
-			console.log(err.message)
-		})
-	}, [props.match.params.id])
-
 	// Скрываем карточку
 	function hideCard() {
 		document.getElementById('Card').style.visibility = 'hidden'
@@ -32,6 +22,16 @@ export default function Card(props) {
 	function showCard() {
 		document.getElementById('Card').style.visibility = 'visible'
 	}
+	// Загрузка карточки выбранной на предыдущем экране
+	useEffect(() => {
+		axios.get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`).then(res => {
+			setChar(res.data)
+			console.log('Response:', res)
+		}).catch(err => {
+			console.log(err.message)
+		})
+		setTimeout(showCard, 400)
+	}, [props.match.params.id])
 
 	// Скрываем карточку, подгружаем предыдущего персонажа, а затем показываем снова
 	function GetPreviousCharacter() {
