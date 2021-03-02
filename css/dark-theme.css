@@ -1,5 +1,7 @@
+/*Темная тема, подгружаемая с помощью компонента DarkModeSwitcher*/
+
 body {
-    background: url(../resources/background-dark.jpg) no-repeat fixed;
+    background: #242730 url(../resources/background-dark.jpg) no-repeat fixed;
 }
 
 @media (max-width: 800px) {
@@ -11,32 +13,50 @@ body {
 .Nav > img {
     filter: invert(1) !important;
 }
+
 .Nav > h1 {
     color: #bfbfbf !important;
 }
+
 .Nav > h2 {
     color: #b7b7b7 !important;
 }
+
 .Nav a {
     color: #b7b7b7 !important;
 }
 
-.SmallCard {
-     background: #b1b1b1 !important;
- }
-.SmallCard .characteristics {
-    color: #3c3c3c !important;
+.SmallCard:before {
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5) !important;
+    filter: blur(25px) !important;
 }
+
+.SmallCard {
+    background: linear-gradient(45deg, rgba(2255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.7) 100%) !important;
+}
+
+.SmallCard .characteristics {
+    color: #282828 !important;
+}
+
 .SmallCard .id {
     color: #434343 !important;
 }
-.Alive, .Dead, .Unknown{
-    border: solid 1px rgba(0, 0, 0, 0.75) !important;
+
+@media (max-width: 800px) {
+    .SmallCard {
+        background: linear-gradient(45deg, rgba(2255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+}
+
+.Alive, .Dead, .unknown {
+    border: solid 1px rgba(0, 0, 0, 0.4) !important;
 }
 
 .loaderText {
     color: #dbdbdb !important;
 }
+
 .loader, .loader:before, .loader:after {
     border-color: white !important;
     color: white !important;
@@ -48,8 +68,8 @@ body {
     border-right: 1.1em solid rgba(255, 255, 255, 0);
     border-bottom: 1.1em solid rgba(255, 255, 255, 0);
     border-left: 0.6rem solid #a4a4a4 !important;
-
 }
+
 .PreviousPage, .NextPage {
     filter: brightness(250%) !important;
 }
@@ -57,4 +77,3 @@ body {
 .Card {
     filter: brightness(0.85) !important;
 }
-

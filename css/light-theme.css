@@ -1,10 +1,12 @@
+/*Светлая дефолтная тема*/
+
 body {
     background: url(../resources/background-light.jpg) no-repeat fixed;
 }
 
 @media (max-width: 800px) {
     body {
-        background: #eaeaea !important;
+        background: #e3e3e3 !important;
     }
 }
 
