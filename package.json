@@ -1,5 +1,6 @@
 {
   "name": "rick-morty",
+  "homepage": "https://cat-in-a-box.github.io/rick-morty",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
