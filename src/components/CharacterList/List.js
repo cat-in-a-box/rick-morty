@@ -75,7 +75,9 @@ export default function CharacterList() {
 				<div className={'Nav'}>
 					<img className={'Logo'} alt='logo'/>
 					<h1>Список персонажей сериала <br/>Rick and Morty</h1>
-					<h2>Тестовое задание для компании Nethouse</h2>
+					<h2>Код и описание проекта:
+						<a href={'https://github.com/cat-in-a-box/rick-morty'} target={'_blank'}> GitHub</a>
+					</h2>
 				</div>
 				<div className={'CharacterListContainer'}>
 					{chars.map(char => {

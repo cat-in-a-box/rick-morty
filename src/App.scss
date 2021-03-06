@@ -79,6 +79,9 @@ body {
         font-size: 1.2rem;
         margin-top: 0;
         text-align: center;
+        a {
+            color: #515151;
+        }
         @include for-mobile-devices {
             font-size: 1.1rem;
             max-width: 65%;
