@@ -16,7 +16,7 @@ export default function CharacterList() {
 		const scrollHeight = (document.documentElement
 				&& document.documentElement.scrollHeight)
 				|| document.body.scrollHeight
-		if (scrollTop + window.innerHeight + 150 >= scrollHeight) {
+		if (scrollTop + window.innerHeight + 90 >= scrollHeight) {
 			setIsBottom(true)
 		}
 	}
@@ -76,7 +76,7 @@ export default function CharacterList() {
 					<img className={'Logo'} alt='logo'/>
 					<h1>Список персонажей сериала <br/>Rick and Morty</h1>
 					<h2>Код и описание проекта:
-						<a href={'https://github.com/cat-in-a-box/rick-morty'} target={'_blank'}> GitHub</a>
+						<a href={'https://github.com/cat-in-a-box/rick-morty'} rel={'noreferrer'} target={'_blank'}> GitHub</a>
 					</h2>
 				</div>
 				<div className={'CharacterListContainer'}>
